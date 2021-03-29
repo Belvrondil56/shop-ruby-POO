@@ -1,9 +1,9 @@
 class Greeting
-    def hello
-        "Hello world"
-    end
+  def hello
+    "Hello world"
+  end
 
-    def bye (name)
-        "Good bye #{name} !"
-    end
+  def bye(name)
+    "Good bye #{name} !"
+  end
 end

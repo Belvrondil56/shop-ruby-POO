@@ -1,58 +1,57 @@
+# Classe panier
 class Panier
+  attr_reader :contenu
 
-    attr_reader :contenu
+  def initialize
+    @contenu = []
+  end
 
-    def initialize()
-        @contenu = []
+  def how_many(produit)
+    compteur = 1
+    contenu.each do |a|
+      if a.include? produit.name.to_s
+        compteur += 1
+      else
+        compteur
+      end
     end
+    compteur
+  end
 
-    def how_many(produit)
-        compteur = 1
-        for a in contenu
-            if a.include? "#{produit.name}"
-                compteur += 1
-            else
-                return compteur
-            end
-        end
-        return compteur
-    end
+  def reduc(produit)
+    if (produit.name == "Apples") || (produit.name == "Mele") || (produit.name == "Cerises")
+      if produit.name == "Apples"
+        produit.prix = if how_many(produit) < 3
+            100
+          elsif how_many(produit) % 3 == 0
+            0
+          else
+            100
+          end
+      end
+      if produit.name == "Mele"
+        produit.prix = if how_many(produit) < 2
+            100
+          elsif how_many(produit).even?
+            50
+          else
+            100
+          end
+      end
+      if produit.name == "Cerises"
+        produit.prix = if how_many(produit) < 2
+            75
+          elsif how_many(produit).even?
+            55
+          else
+            75
+          end
+      end
+      produit.prix
+    else produit.prix     end
+  end
 
-    def reduc(produit)
-        if produit.name == "Apples" or produit.name == "Mele" or produit.name == "Cerises"
-            if produit.name == "Apples"
-                if how_many(produit) < 3
-                    produit.prix = 100
-                elsif how_many(produit)%3 == 0
-                    produit.prix = 0
-                else 
-                    produit.prix = 100
-                end
-            end
-            if produit.name == "Mele"
-                if how_many(produit) < 2
-                     produit.prix = 100
-                elsif how_many(produit)%2 == 0
-                    produit.prix = 50
-                else 
-                    produit.prix = 100
-                end
-            end
-            if produit.name == "Cerises"
-                if how_many(produit) < 2
-                    produit.prix = 75
-                elsif how_many(produit)%2 == 0
-                    produit.prix = 55
-                else 
-                    produit.prix = 75
-                end
-            end
-            produit.prix
-            else produit.prix
-        end
-    end
-
-    def add(produit)
-        contenu << produit.name
-    end
+  def add(produit)
+    contenu << produit.name
+  end
 end

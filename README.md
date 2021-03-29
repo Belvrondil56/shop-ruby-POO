@@ -1,0 +1,1 @@
+[![Test Coverage](https://api.codeclimate.com/v1/badges/34d216193329444b6be6/test_coverage)](https://codeclimate.com/github/Belvrondil56/shop-ruby-POO/test_coverage)

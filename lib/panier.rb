@@ -38,7 +38,7 @@ class Panier
             100
           end
       end
-      if produit.name == "Cerises"
+      if produit.name == 'Cerises'
         produit.prix = if how_many(produit) < 2
             75
           elsif how_many(produit).even?
@@ -48,7 +48,9 @@ class Panier
           end
       end
       produit.prix
-    else produit.prix     end
+    else 
+        produit.prix     
+    end
   end
 
   def add(produit)

@@ -1,5 +1,6 @@
 require "./lib/produit"
 require "./lib/panier"
+require "pry"
 
 total = 0
 panier = Panier.new()

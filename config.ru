@@ -5,9 +5,8 @@ require 'thin'
 load 'router.rb'
 
 handler = Rack::Handler::Thin
-handler.run{
-  Router.run(
+handler.run(
     Router.new,
         Port: 7373
-  )
-}
+
+)
